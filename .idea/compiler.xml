@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="BasicConfig" />
+        <module name="WarehouseManage" />
         <module name="Lgdb" />
         <module name="WechatServer" />
       </profile>
@@ -19,6 +20,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="BasicConfig" options="-parameters" />
       <module name="Lgdb" options="-parameters" />
+      <module name="WarehouseManage" options="-parameters" />
       <module name="WechatServer" options="-parameters" />
       <module name="demo" options="-parameters" />
     </option>

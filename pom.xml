@@ -12,6 +12,7 @@
         <module>Lgdb</module>
         <module>BasicConfig</module>
         <module>WechatServer</module>
+        <module>WarehouseManage</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
