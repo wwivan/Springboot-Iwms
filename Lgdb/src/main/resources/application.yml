@@ -1,0 +1,10 @@
+server:
+  port: 3000
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/iwms
+  mvc:
+    static-path-pattern: /myStatic/**
+  resources:
+    static-locations: classpath:/myStatic/
