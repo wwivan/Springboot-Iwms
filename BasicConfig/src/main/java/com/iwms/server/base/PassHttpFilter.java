@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 @Component
@@ -23,6 +24,13 @@ public class PassHttpFilter implements Filter {
         httpResponse.setHeader("Access-Control-Allow-Headers","*");
         httpResponse.setHeader("Access-Control-Allow-Credentials", "true");
         httpResponse.addHeader("Access-Control-Allow-Origin", "*");
+//        HttpServletRequest reqs = (HttpServletRequest) servletRequest;
+//        httpResponse.setHeader("Access-Control-Allow-Origin",reqs.getHeader("Origin"));
+//        httpResponse.setHeader("Access-Control-Allow-Credentials", "true");
+//        httpResponse.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+//        httpResponse.setHeader("Access-Control-Max-Age", "3600");
+//        httpResponse.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
         filterChain.doFilter(servletRequest, httpResponse);
     }
 

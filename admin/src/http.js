@@ -1,17 +1,18 @@
 import axios from "axios"
 import Vue from 'vue'
 import router from "./router";
-
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 const http = axios.create({
     baseURL: "http://localhost:3000/"
 })
 
 
+
 http.interceptors.request.use(function (config) {
-    // if (localStorage.token) {
-    //     config.headers.Authorization = "Bearer " + localStorage.token
-    // }
-    // config.headers.signature = "wwivan";
+    if (localStorage.token) {
+        config.headers.Authorization =localStorage.token
+    }
+    config.headers.signature = "wwivan";
     return config;
 }, function (error) {
     return Promise.reject(error)

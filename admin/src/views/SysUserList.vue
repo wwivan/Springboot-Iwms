@@ -47,6 +47,15 @@
       async fetch() {
         const res = await this.$http.get("sysUser/list");
         this.sysUsers = res.data.data;
+        if(res.data.code==-1){
+          this.$message({
+            type: "error",
+            message: res.data.message
+          });
+          this.$router.push("/login");
+        }
+
+
       },
       async remove(row) {
         this.$confirm(`是否确定要删除角色"${row.userName}"`, "提示", {

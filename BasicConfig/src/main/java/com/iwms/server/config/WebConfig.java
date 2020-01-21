@@ -1,5 +1,6 @@
 package com.iwms.server.config;
 
+import com.iwms.server.base.JwtInterceptor;
 import com.iwms.server.base.MyInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -13,13 +14,16 @@ import javax.annotation.Resource;
 public class WebConfig implements WebMvcConfigurer {
     @Autowired
     private MyInterceptor myInterceptor;//具体拦截器名称
+    @Autowired
+    private JwtInterceptor jwtInterceptor;//jwt拦截器
 
     /**
      * 添加拦截器
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(myInterceptor).addPathPatterns("/**");//表示所有的接口都不需要经过拦截器
+        registry.addInterceptor(myInterceptor).addPathPatterns("/**");//表示所有的接口都需要经过拦截器
+        registry.addInterceptor(jwtInterceptor).addPathPatterns("/**").excludePathPatterns("/login");//添加jwt拦截
     }
 
     @Override

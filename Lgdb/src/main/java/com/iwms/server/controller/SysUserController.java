@@ -4,6 +4,7 @@ import com.iwms.server.base.Response;
 import com.iwms.server.entity.SysUser;
 import com.iwms.server.entity.SystemReq;
 import com.iwms.server.service.SysUserService;
+import com.iwms.server.util.JwtToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,6 +41,7 @@ public class SysUserController {
      * 查询所有系统管理员
      * @return
      */
+    @JwtToken
     @RequestMapping("/list")
     public Response findAll(){
         List<SysUser> all = sysUserService.findAll();
